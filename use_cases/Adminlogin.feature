@@ -16,20 +16,28 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
 Feature: Admin login
   this feature for the action of login 
 
   @tag1
-  Scenario: Administrator can log in with valid credentials 
-    Given I have an account with user name and password  
+  Scenario Outline: Administrator can log in with valid credentials 
+    Given I have an account with <username> and <password> 
     When I enter the user name and password in correct way then press enter
     Then I will be inside the website successfuly 
 
+Examples:
+|username|password|
+|"rewaa"|"1111"|
+
+
   @tag2
-  Scenario: Administrator has the wrong password 
-    Given I have an account with user name and password 
+  Scenario Outline: Administrator has the wrong password 
+    Given I have an account with <username> and <password>
     When I enter the user name and a wrong password then press enter
     Then An error message appear beacause of the failed login process
     
+Examples:
+|username|password|
+|"regwaa"|"11h11"|
+ |"reghwaa"|"11h11"|   
   
