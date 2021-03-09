@@ -27,7 +27,7 @@ Feature: search book
 
 Examples:
 |substring|
-|"medicine"|
+|"Hospital"|
  
  
   @tag7
@@ -38,7 +38,7 @@ Examples:
 
 Examples:
 |substring|
-|"reema"|
+|"Walter"|
  
   @tag8
 Scenario Outline: Searching for a substring of the ISBN 
@@ -48,9 +48,17 @@ Scenario Outline: Searching for a substring of the ISBN
 
 Examples:
 |substring|
-|"1234567890"|
+|"125"|
  
-  
+   @tag9
+Scenario Outline: : Searching also works when the user/administrator is logged in 
+    Given  administrator is logged in 
+    When I enter string to search for book by providing a <substring> of the <kindofsearch>
+    Then I will see the full title,author,signature,and the ISBN of that book  
+
+Examples:
+|substring|kindofsearch|
+|"Walter"|"author"|
     
  @tag10
 Scenario Outline: : No books match the criteria (substring)
@@ -60,4 +68,4 @@ Scenario Outline: : No books match the criteria (substring)
 
 Examples:
 |substring|
-|"medddd"|   
+|"Hosp"|   

@@ -15,6 +15,9 @@ public class searchBookSteps {
 	public searchBookSteps(mainclassbook o)
 	{ b=o;
 	  b.bookbook();
+	  b.admin();
+	  
+	  
 	}
 	
 	public boolean f = false;
@@ -32,6 +35,18 @@ public class searchBookSteps {
 		   b.searchtitle(testsearch);
 			f=b.testflagsearch();
 	}
+	@Given("administrator is logged in")
+	public void administrator_is_logged_in() {
+	    b.makeadminlogin();
+	}
+
+		@When("I enter string to search for book by providing a {string} of the {string}")
+		public void i_enter_string_to_search_for_book_by_providing_a_of_the(String string, String string2) {
+			
+			b.adminsearch(string, string2);
+			f=b.testflagsearch();
+		}
+
 
 	@Then("I will see the full title,author,signature,and the ISBN of that book")
 	public void i_will_see_the_full_title_author_signature_and_the_isbn_of_that_book() {
@@ -61,6 +76,10 @@ public class searchBookSteps {
 			f=b.testflagsearch();
 	}
 	
+
+
+	
+	
 	//search for a book doesn't exist
 	@Given("I want to searches for book by providing a {string} of the title for examble")
 	public void i_want_to_searches_for_book_by_providing_a_of_the_title_for_examble(String string) {
@@ -72,6 +91,10 @@ public class searchBookSteps {
 		   b.searchtitle(testsearch);
 			f=b.testflagsearch();
 	}
+	
+	
+
+	
 
 	@Then("I cant see any book in the list and a message of this library doesnt have this book will appear")
 	public void i_cant_see_any_book_in_the_list_and_a_message_of_this_library_doesnt_have_this_book_will_appear() {

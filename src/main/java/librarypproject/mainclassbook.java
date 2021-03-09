@@ -16,6 +16,7 @@ public class mainclassbook {
 	 public boolean flagadmin = false ;
 	 public boolean flagaddbook = false ;
 	 public boolean canadd =false;
+	 public boolean logout =false;
 	 
 	 public String sa ;
 	 public String si ;
@@ -34,22 +35,22 @@ public class mainclassbook {
 	 }
 	 
 	 public void bookbook() {
-		 String a ="reema mhesin";
-		 String s ="bookmi";
-		 String i ="1234567890";
-		 String t ="medicine for student";
+		 String a ="Brian Alexander";
+		 String s ="Historybook";
+		 String i ="1250237351";
+		 String t ="The Hospital";
 		 Book x = new Book(i,a,t,s);
 		 library.add(x);
-		 String aaa ="rewaa shehada";
-		 String sss ="book2020";
-		 String iii ="1234569999";
-		 String ttt ="med for doctors";
+		 String aaa ="Walter Wick";
+		 String sss ="Photograghybook";
+		 String iii ="0439165873";
+		 String ttt ="A Ray of Light";
 		 Book xx = new Book(iii,aaa,ttt,sss);
 		 library.add(xx);
-		 String o ="reema fadi";
-		 String p ="book0000";
-		 String l ="1223456789";
-		 String k ="medicine";
+		 String o ="Walter Wick";
+		 String p ="book2020";
+		 String l ="0590221973";
+		 String k ="A Drop Of Water";
 		 Book m = new Book(l,o,k,p);
 		 library.add(m);
 		 
@@ -69,7 +70,7 @@ public class mainclassbook {
 				JOptionPane.showMessageDialog(null,"successful login" );
 				flagadmin = true;
 			}
-			else {JOptionPane.showMessageDialog(null,"obs failed login" );}
+			else {JOptionPane.showMessageDialog(null," failed login" );}
 				
 		}
 		else {JOptionPane.showMessageDialog(null,"failed login" );}
@@ -77,14 +78,22 @@ public class mainclassbook {
 	}
 
 
-
-	public  void adminaddbook(String a,String b,String c,String d,String e,String f)
+	
+	
+	public  void makeadminlogin ()
 	{
-		for( int i=0;i<userpassword.size();i++){
-			String nn=(userpassword.get(i)).getname();
-		if(nn.equalsIgnoreCase(a)) {
-				String pp=(userpassword.get(i)).getpassword();
-			if(pp.equalsIgnoreCase(b)) {
+		
+				flagadmin = true;
+			
+	
+	}
+
+	
+
+
+	public  void adminaddbook(String c,String d,String e,String f)
+	{
+			if(flagadmin==true) {
 				
 				int sum=0;
 				int mood;
@@ -113,18 +122,18 @@ public class mainclassbook {
 			}
 			if(mood!=0)
 				JOptionPane.showMessageDialog(null,"The ISBN not valid" );
+			    canadd= true;
+		
 				
-			}
-				
-				
+			}	
 			
 			}
 			else {JOptionPane.showMessageDialog(null,"you are not the admin,you can't add books" );}
 				
-		}
-		else {JOptionPane.showMessageDialog(null,"you are not the admin,you can't add books" );}
+		
+		
 	}
-	}
+	
 	
 	
 	
@@ -138,11 +147,16 @@ public class mainclassbook {
 
 	
 
-	public void logout() {
+	public boolean logout() {
+		if(flagadmin==true) {
 		JOptionPane.showMessageDialog(null,"successful logout" );
 		flagadmin = false;
+		logout = true;
+		return logout;
 	}
-	
+		else {logout = false;JOptionPane.showMessageDialog(null,"You are not logged in" );
+		return logout;}
+	}
 	public boolean testflagadmin ()
 	{
 	return flagadmin;
@@ -159,7 +173,7 @@ public class mainclassbook {
 	
 	
 	public void searchauther(String a) {
-		String  str;
+		 String  str="";
 		
 		for( int i=0;i<library.size();i++){
 			String test=(library.get(i)).getAuthor();
@@ -178,13 +192,18 @@ public class mainclassbook {
 				ss=library.get(i).getSignature();
 				st=library.get(i).getTitle();
 				flagsearch=true;
-				str=si+" | "+st+" | "+sa+" | "+ss+"\n";
-				JOptionPane.showMessageDialog(null,message+"\n"+str+"\n" );
+				str+=si+" | "+st+" | "+sa+" | "+ss+"\n";
+				
 				
 			}
 			flage=false;
 			}//for
-			if(flage2==false) {
+		
+		if(flage2==true) {
+			JOptionPane.showMessageDialog(null,message+"\n"+str+"\n" );
+	}
+		
+		else if(flage2==false) {
 				JOptionPane.showMessageDialog(null,"This library doesnt have this book");
 		}
 	}
@@ -192,7 +211,7 @@ public class mainclassbook {
 	
 	
 	public void searchtitle(String t) {
-		String  str;
+		String  str="";
 		
 			for( int i=0;i<library.size();i++){
 			String test=(library.get(i)).getTitle();
@@ -213,19 +232,23 @@ public class mainclassbook {
 			st=library.get(i).getTitle();
 			flagsearch=true;
 			
-			str=si+" | "+st+" | "+sa+" | "+ss+"\n";
-			JOptionPane.showMessageDialog(null,message+"\n"+str+"\n" );
+			str+=si+" | "+st+" | "+sa+" | "+ss+"\n";
+			
 			}
 			flage=false;
 			}//for	
-			if(flage2==false) {
+			if(flage2==true) {
+				JOptionPane.showMessageDialog(null,message+"\n"+str+"\n" );
+		}
+			
+			else if(flage2==false) {
 					JOptionPane.showMessageDialog(null,"This library doesnt have this book");
 			}
 	}
 	
 	public void searchisbn(String v) {
-		int flage=1;
-		String  str;
+		int flagee=0;
+		String  str="";
 		char c;
 		char z;
 			for( int i=0;i<library.size();i++){
@@ -237,13 +260,13 @@ public class mainclassbook {
 			 c=array1[k];
 			 z=array2[k];	
 			if(c==z){
-			flage=1;
+			flagee=1;
 			}
 			else {
-			flage=0;
+			flagee=0;
 			}
 			}//for
-			if(flage==1) {
+			if(flagee==1) {
 			flage2=true;	
 		    sa=library.get(i).getAuthor();
 			si=library.get(i).getISBN();
@@ -251,15 +274,137 @@ public class mainclassbook {
 			st=library.get(i).getTitle();
 			flagsearch=true;
 			str=si+" | "+st+" | "+sa+" | "+ss+"\n";
-			JOptionPane.showMessageDialog(null,message+"\n"+str+"\n" );
+			
 			}
-			}//for
-			if(flage2==false) {
-				JOptionPane.showMessageDialog(null,"This library doesnt have this book");
+			flagee=0;
+			}
+			//for
+			if(flage2==true) {
+				JOptionPane.showMessageDialog(null,message+"\n"+str+"\n" );
 		}
+			
+			else if(flage2==false) {
+					JOptionPane.showMessageDialog(null,"This library doesnt have this book");
+			}
+			flagee=0;
 	}
 
+	public void adminsearch(String str2,String str1)
+	{
+		
+		if(flagadmin==true)
+		{
+		
+			if(str1.equalsIgnoreCase("isbn"))
+			{
+		    int flage=1;
+			String  str;
+			char c;
+			char z;
+				for( int i=0;i<library.size();i++){
+				String test=(library.get(i)).getISBN();
+				char []array1 =str2.toCharArray();
+				char []array2 =test.toCharArray();
+				for(int k=0;k<(array1.length);k++)
+				{
+				 c=array1[k];
+				 z=array2[k];	
+				if(c==z){
+				flage=1;
+				}
+				else {
+				flage=0;
+				}
+				}//for
+				if(flage==1) {
+				flage2=true;	
+			    sa=library.get(i).getAuthor();
+				si=library.get(i).getISBN();
+				ss=library.get(i).getSignature();
+				st=library.get(i).getTitle();
+				flagsearch=true;
+				str=si+" | "+st+" | "+sa+" | "+ss+"\n";
+				JOptionPane.showMessageDialog(null,message+"\n"+str+"\n" );
+				}
+				}//for
+				if(flage2==false) {
+					JOptionPane.showMessageDialog(null,"This library doesnt have this book");
+			}
+		
+			}
+			else if(str1.equalsIgnoreCase("title"))
+			{
+				String  str;
+				
+				for( int i=0;i<library.size();i++){
+				String test=(library.get(i)).getTitle();
+				String[]f=test.split(" ");
+			     
+				for(String string:f){
+				if(string.equalsIgnoreCase(str2)) {
+					flage=true;
+					flage2=true;
+					break;
+				}
+				}
+				
+				if(flage==true) {
+			    sa=library.get(i).getAuthor();
+				si=library.get(i).getISBN();
+				ss=library.get(i).getSignature();
+				st=library.get(i).getTitle();
+				flagsearch=true;
+				
+				str=si+" | "+st+" | "+sa+" | "+ss+"\n";
+				JOptionPane.showMessageDialog(null,message+"\n"+str+"\n" );
+				}
+				flage=false;
+				}//for	
+				if(flage2==false) {
+						JOptionPane.showMessageDialog(null,"This library doesnt have this book");
+				}
+}
+			 else if(str1.equalsIgnoreCase("author"))
+			 {
+				 String  str="";
+					
+					for( int i=0;i<library.size();i++){
+						String test=(library.get(i)).getAuthor();
+						String[]f=test.split(" ");
+					     
+						for(String string:f){
+						if(string.equalsIgnoreCase(str2)) {
+						flage=true;
+						flage2=true;
+						break;
+						}
+						}
+						if(flage==true) {
+							sa=library.get(i).getAuthor();
+							si=library.get(i).getISBN();
+							ss=library.get(i).getSignature();
+							st=library.get(i).getTitle();
+							flagsearch=true;
+							str+=si+" | "+st+" | "+sa+" | "+ss+"\n";
+						}
+						flage=false;
+						}//for
+					
+					if(flage2==true) {
+						JOptionPane.showMessageDialog(null,message+"\n"+str+"\n" );
+				}
+					
+					else if(flage2==false) {
+							JOptionPane.showMessageDialog(null,"This library doesnt have this book");
+					}
+					}
+			
+		}
+		
+		
+	}
+	}
 
 	
-}
+
 
