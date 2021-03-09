@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="librarypproject.addbooksteps" project="librarypproject" 
+    file="/librarypproject/src/test/java/librarypproject/addbooksteps.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="214" width="388" x="307" y="168"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="librarypproject.searchBookSteps" project="librarypproject" 
+    file="/librarypproject/src/test/java/librarypproject/searchBookSteps.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="358" width="654" x="735" y="168"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="librarypproject.adminloginSteps" project="librarypproject" 
+    file="/librarypproject/src/test/java/librarypproject/adminloginSteps.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="250" width="486" x="1429" y="168"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="librarypproject.Adminlogoutsteps" project="librarypproject" 
+    file="/librarypproject/src/test/java/librarypproject/Adminlogoutsteps.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="310" x="1955" y="168"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="librarypproject.test" project="librarypproject" 
+    file="/librarypproject/src/test/java/librarypproject/test.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="104" x="2305" y="168"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

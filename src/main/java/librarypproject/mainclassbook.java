@@ -64,9 +64,9 @@ public class mainclassbook {
 	{
 		for( int i=0;i<userpassword.size();i++){
 			String nn=(userpassword.get(i)).getname();
-		if(nn.equalsIgnoreCase(a)) {
+		if(nn.equals(a)) {
 				String pp=(userpassword.get(i)).getpassword();
-			if(pp.equalsIgnoreCase(b)) {
+			if(pp.equals(b)) {
 				JOptionPane.showMessageDialog(null,"successful login" );
 				flagadmin = true;
 			}
@@ -93,8 +93,20 @@ public class mainclassbook {
 
 	public  void adminaddbook(String c,String d,String e,String f)
 	{
+		boolean exsist = false;
 			if(flagadmin==true) {
 				
+				for( int i=0;i<library.size();i++){
+					String nn=(library.get(i)).getISBN();
+				if(nn.equals(c)) {
+					JOptionPane.showMessageDialog(null,"The book already exsist" );
+					exsist = true;}}
+				
+				
+				
+				
+				
+				if(!exsist) {
 				int sum=0;
 				int mood;
 			
@@ -126,7 +138,7 @@ public class mainclassbook {
 		
 				
 			}	
-			
+				}
 			}
 			else {JOptionPane.showMessageDialog(null,"you are not the admin,you can't add books" );}
 				

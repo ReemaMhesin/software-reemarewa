@@ -15,6 +15,7 @@ public class addbooksteps {
 	public addbooksteps(mainclassbook o) {
 		x=o;
 		x.admin();
+		
 	}
 	@Given("I am the admin and I am logged in")
 	public void i_am_the_admin_and_i_am_logged_in() {
